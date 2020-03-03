@@ -1,0 +1,132 @@
+\documentclass[a4 paper]{article}
+% Set target color model to RGB
+\usepackage[inner=1.5cm,outer=1.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{setspace}
+\usepackage[rgb]{xcolor}
+\usepackage{verbatim}
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
+\usepackage{fancyhdr}
+\usepackage[colorlinks=true, urlcolor=blue,  linkcolor=blue, citecolor=blue]{hyperref}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{rotating}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+
+%\usetikzlibrary{through,backgrounds}
+\hypersetup{%
+pdfauthor={Arman Shokrollahi},%
+pdftitle={Homework},%
+pdfkeywords={Tikz,latex,bootstrap,uncertaintes},%
+pdfcreator={PDFLaTeX},%
+pdfproducer={PDFLaTeX},%
+}
+%\usetikzlibrary{shadows}
+\usepackage[francais]{babel}
+\usepackage{booktabs}
+\newcommand{\ra}[1]{\renewcommand{\arraystretch}{#1}}
+
+      \newtheorem{thm}{Theorem}[section]
+      \newtheorem{prop}[thm]{Proposition}
+      \newtheorem{lem}[thm]{Lemma}
+      \newtheorem{cor}[thm]{Corollary}
+      \newtheorem{defn}[thm]{Definition}
+      \newtheorem{rem}[thm]{Remark}
+      \numberwithin{equation}{section}
+
+\newcommand{\report}[5]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.50in { {\bf EC4213/ET5402/CT5303:~Machine learning and deep learning \hfill Fall 2019} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill #1 \hfill}}
+       \vspace{1mm}
+       \hbox to 6.28in { {\hfill #2  \hfill} }
+       \vspace{3mm}
+       \hbox to 6.28in { {\it Instructor: #3 \hfill #4 (#5)}}
+      \vspace{2mm}}
+   }
+   \end{center}
+   \markboth{#5 -- #1}{#5 -- #1}
+   \vspace*{4mm}
+}
+
+\newcommand{\bbF}{\mathbb{F}}
+\newcommand{\bbX}{\mathbb{X}}
+\newcommand{\bI}{\mathbf{I}}
+\newcommand{\bX}{\mathbf{X}}
+\newcommand{\bx}{\mathbf{x}}
+\newcommand{\bY}{\mathbf{Y}}
+\newcommand{\bw}{\mathbf{w}}
+\newcommand{\bepsilon}{\boldsymbol{\epsilon}}
+\newcommand{\balpha}{\boldsymbol{\alpha}}
+\newcommand{\bbeta}{\boldsymbol{\beta}}
+\newcommand{\0}{\mathbf{0}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\newcommand\gldec[2]{
+\underset{#1}{\overset{#2}{\gtrless}}
+}
+\usepackage{titlesec}
+\titlespacing*{\section}
+{1.5em}{1.5em}{1em}
+\titlespacing*{\subsection}
+{1.5em}{1em}{1em}
+
+
+\begin{document}
+\report{Report for CA1}{}{Jonghyun Choi}{Shin Ji Su}{20175095}
+
+REPORT1.
+Computation used in here :
+\begin{center}$mean((datasets.TennisData.Y>0)==(h.predictAll(datasets.TennisData.X)>0))$
+\end{center}
+\textit{datasets.TennisData.Y} is about real data and \textit{h.predictAll(datasets.TennisData.X)} is about predicted data by X given classifier h.
+So this computation is about how much data is well predicted and it is divided by total data which is the same with computing classification accuracy .
+\\[3mm]
+REPORT2.
+Training accuracy is related to the training data examples.It can go down after increasing number of examples on training because there can be exist more ambiguity which is made by different labels with same feature values.
+However, test accuracy is predicting from the features and it could increase when you increase the number of examples on training because features that are considered important on training might be vary as the number of examples on training changes.
+Thus, according to the various examples, testing accuracy can go up or down.
+\\[3mm]
+REPORT3. 
+Training accuracy will monotonically increase because it is valued by the given answer examples. 
+However, overfitting problem might happen when you keep trying to increase the training accuracy. This overfitting will cause the test accuracy to be not only not being monotonically increasing but also tumble. Also increasing questions on DT might increase or decrease the testing accuracy so it will tumble.
+\\[3mm]
+REPORT4.
+ \begin{verbatim}
+-introduction to low-level programming concepts [212]
+   - program analysis and understanding [631]
+     - computer processing of pictorial information [733]
+       - Leaf -1.0
+       - Leaf 1.0
+     - introduction to human-computer interaction [434]
+       - Leaf -1.0
+       - Leaf 1.0
+   - computational linguistics ii [773]
+     - computational methods [460]
+       - Leaf -1.0
+       - Leaf 1.0
+     - computational geometry [754]
+       - Leaf 1.0
+       - Leaf 1.0
+  \end{verbatim}
+  
+The course $introduction to low level programming concepts (212)$ is not considered as a good feature intuitively and I think it should not be at the top of this tree because it is an introductory course that most of the students take. 
+
+Also when you see the decision tree, I think it should set the question about the field like AI or graphic which will be helpful to classify the courses because it will be somehow related to the kinds of courses taken.
+
+And $computational geometry (754) $ and $computational linguistics ii (773)$ are considered as a advanced courses. So there are high probability that studetns will take those course after others like AI or graphic. This means that when decision tree is used to expect whether studetns would take AI or graphic, it is highly likely that there will be no considerations about above courses.
+\\[3mm]
+REPORT5. 
+After pruning, the test accuracy will increase. Also by the effect of pruning, when we assume that there are lots of examples for training, the training accuracy will decrease, test accuracy will increase and it will be more generalized.
+
+
+
+\end{document}
